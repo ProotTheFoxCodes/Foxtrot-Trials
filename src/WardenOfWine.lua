@@ -2,14 +2,14 @@ SMODS.Challenge({
 	key = "wine_warden",
 	rules = {
 		custom = {
-			{ id = "totp_wine1" },
-			{ id = "totp_wine2" },
-			{ id = "totp_wine3" },
-			{ id = "totp_wine4" },
-            { id = "totp_wine5" },
-            { id = "totp_wine6" },
-            { id = "totp_wine7" },
-            { id = "totp_wine8" },
+			{ id = "fxtrt_wine1" },
+			{ id = "fxtrt_wine2" },
+			{ id = "fxtrt_wine3" },
+			{ id = "fxtrt_wine4" },
+            { id = "fxtrt_wine5" },
+            { id = "fxtrt_wine6" },
+            { id = "fxtrt_wine7" },
+            { id = "fxtrt_wine8" },
             
         },
 --[[
@@ -38,7 +38,7 @@ SMODS.Challenge({
 	calculate = function(self, context)
         local ret = {}
 		if context.setting_blind and G.GAME.round_resets.ante >= 3 then
-            local totp_ban_consumable = pseudorandom_element(get_current_pool("Consumeables"), "ban it", {
+            local fxtrt_ban_consumable = pseudorandom_element(get_current_pool("Consumeables"), "ban it", {
 				in_pool = function(v)
                     return G.P_CENTERS[v] and not next(SMODS.find_card(v))
                 end
@@ -52,11 +52,11 @@ SMODS.Challenge({
             ]]
             ret.message = localize{
                 type = "name_text",
-                set = G.P_CENTERS[totp_ban_consumable].set,
-                key = totp_ban_consumable
-            }.. localize("totp_banned")
+                set = G.P_CENTERS[fxtrt_ban_consumable].set,
+                key = fxtrt_ban_consumable
+            }.. localize("fxtrt_banned")
             ret.func = function()
-                G.GAME.banned_keys[totp_ban_consumable] = true
+                G.GAME.banned_keys[fxtrt_ban_consumable] = true
             end
             return ret
         end

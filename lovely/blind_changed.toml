@@ -16,7 +16,7 @@ self.GAME.round_resets.blind_choices = setmetatable({}, {
     __index = oldblindchoices,
     __newindex = function(t, k, v)
         if k == 'Boss' then
-            SMODS.calculate_context({totp_boss_change = true})
+            SMODS.calculate_context({fxtrt_boss_change = true})
         end
         rawset(oldblindchoices, k, v)
     end

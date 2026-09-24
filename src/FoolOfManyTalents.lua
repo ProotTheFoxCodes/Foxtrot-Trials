@@ -2,16 +2,16 @@ SMODS.Challenge({
 	key = "talents",
 	rules = {
 		custom = {
-			{ id = "totp_talents1" },
-            { id = "totp_talents2" },
-			{ id = "totp_talents3" },
-			{ id = "totp_talents4" },
-			{ id = "totp_talents5" },
-			{ id = "totp_talents6" },
-			{ id = "totp_talents7" },
-			{ id = "totp_talents8" },
-			{ id = "totp_talents9" },
-			{ id = "totp_talents10" },
+			{ id = "fxtrt_talents1" },
+            { id = "fxtrt_talents2" },
+			{ id = "fxtrt_talents3" },
+			{ id = "fxtrt_talents4" },
+			{ id = "fxtrt_talents5" },
+			{ id = "fxtrt_talents6" },
+			{ id = "fxtrt_talents7" },
+			{ id = "fxtrt_talents8" },
+			{ id = "fxtrt_talents9" },
+			{ id = "fxtrt_talents10" },
 		},
 	},
     jokers = {
@@ -106,10 +106,10 @@ SMODS.Challenge({
 			if SMODS.has_enhancement(context.other_card, "m_bonus") then
 ---@diagnostic disable-next-line: discard-returns
 				SMODS.modify_rank(context.other_card, 1)
-				ret.message = localize("totp_rank_up")
+				ret.message = localize("fxtrt_rank_up")
 				if pseudorandom("fun fact: polar bears have black skin, it's just hidden by the white fur", 0, 3) > 2 then
 					context.other_card:set_ability("c_base")
-					ret.extra = {message = localize("totp_fool")}
+					ret.extra = {message = localize("fxtrt_fool")}
 				end
 			end
 			if context.other_card:get_id() ~= "King" and context.other_card:get_id() ~= "Queen" then

@@ -2,10 +2,10 @@ SMODS.Challenge({
 	key = "jest",
 	rules = {
 		custom = {
-			{ id = "totp_jest1" },
-			{ id = "totp_jest2" },
-			{ id = "totp_jest3" },
-			{ id = "totp_jest4" },
+			{ id = "fxtrt_jest1" },
+			{ id = "fxtrt_jest2" },
+			{ id = "fxtrt_jest3" },
+			{ id = "fxtrt_jest4" },
 			
         },
 		modifiers = {

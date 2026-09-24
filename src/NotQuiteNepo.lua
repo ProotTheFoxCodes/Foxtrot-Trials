@@ -10,11 +10,11 @@ SMODS.Challenge({
 	key = "nepo",
 	rules = {
 		custom = {
-			{ id = "totp_nepo1" },
-			{ id = "totp_nepo2" },
-			{ id = "totp_nepo3" },
-			{ id = "totp_nepo4" },
-			{ id = "totp_nepo5" },
+			{ id = "fxtrt_nepo1" },
+			{ id = "fxtrt_nepo2" },
+			{ id = "fxtrt_nepo3" },
+			{ id = "fxtrt_nepo4" },
+			{ id = "fxtrt_nepo5" },
 		},
 		modifiers = {
             { id = 'dollars',  value = 0 },
@@ -48,9 +48,9 @@ SMODS.Challenge({
 
 old_shop_reroll = G.FUNCS.reroll_shop
 function G.FUNCS.reroll_shop(e)
-	G.GAME.totp_round_rerolls = (G.GAME.totp_round_rerolls or 0) + 1
-	if G.GAME.challenge == "c_totp_nepo" then
-		if G.GAME.totp_round_rerolls < 6 then
+	G.GAME.fxtrt_round_rerolls = (G.GAME.fxtrt_round_rerolls or 0) + 1
+	if G.GAME.challenge == "c_fxtrt_nepo" then
+		if G.GAME.fxtrt_round_rerolls < 6 then
 			old_shop_reroll(e)
 		end
 	else

@@ -55,7 +55,7 @@ payload = '''function G.UIDEF.deck_info(_show_remaining)
         }
         if G.GAME.challenge then
                 tabs.tabs[#tabs.tabs + 1] = {
-                        label = localize("totp_bantab"),
+                        label = localize("fxtrt_bantab"),
                         tab_definition_function = G.UIDEF.view_banned
                 }
         end

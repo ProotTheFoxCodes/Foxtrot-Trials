@@ -20,7 +20,7 @@ payload = '''
         delay = 3,
         blockable = false, blocking = true,
         func = function()
-          SMODS.calculate_context({totp_selecting_blind = true})
+          SMODS.calculate_context({fxtrt_selecting_blind = true})
           return true
         end
       }))

@@ -75,9 +75,9 @@ SMODS.Achievement {
     unlock_condition = function(self,args)
         if G.jokers and not G.GAME.challenge then
             local your = {
-                localize("totp_your"),
-                localize("totp_you_re"),
-                localize("totp_youre"),
+                localize("fxtrt_your"),
+                localize("fxtrt_you_re"),
+                localize("fxtrt_youre"),
             }
             for _, joker in ipairs(G.jokers.cards) do
                 if next(G.jokers.cards) then
@@ -103,7 +103,7 @@ SMODS.Achievement {
     hidden_name = false,
     hidden_text = false,
     unlock_condition = function(self,args)
-        if G.GAME and G.GAME.totp_oml then
+        if G.GAME and G.GAME.fxtrt_oml then
             for k,v in pairs(G.GAME.hands) do
                 if v.level >= 10 then return true end
             end
@@ -117,7 +117,7 @@ SMODS.Achievement {
     hidden_name = false,
     hidden_text = false,
     unlock_condition = function(self,args)
-        if G.GAME and G.GAME.totp_leafsell == false and G.GAME.won then
+        if G.GAME and G.GAME.fxtrt_leafsell == false and G.GAME.won then
             return true
         end
     end,
@@ -141,7 +141,7 @@ SMODS.Achievement {
     hidden_name = false,
     hidden_text = false,
     unlock_condition = function(self,args)
-        if G.GAME and G.GAME.won and G.GAME.totp_nostalgic then
+        if G.GAME and G.GAME.won and G.GAME.fxtrt_nostalgic then
             return true
         end
     end,
@@ -153,7 +153,7 @@ SMODS.Achievement {
     hidden_name = true,
     hidden_text = false,
     unlock_condition = function(self,args)
-        if G.GAME and G.GAME.won and G.GAME.totp_blackjack then
+        if G.GAME and G.GAME.won and G.GAME.fxtrt_blackjack then
             return true
         end
     end,

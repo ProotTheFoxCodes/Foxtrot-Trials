@@ -1,22 +1,22 @@
-totp.config = SMODS.current_mod.config
+fxtrt.config = SMODS.current_mod.config
 
 start_old = Game.start_run
 
 function Game.start_run(self,args)
     local ret = start_old(self,args)
-    G.GAME.totp_oml = true
-    G.GAME.totp_blackjack = true
-    G.GAME.totp_nostalgic = true
-    G.GAME.totp_discarded = {}
-    G.GAME.totp_handsize = 0
+    G.GAME.fxtrt_oml = true
+    G.GAME.fxtrt_blackjack = true
+    G.GAME.fxtrt_nostalgic = true
+    G.GAME.fxtrt_discarded = {}
+    G.GAME.fxtrt_handsize = 0
     return ret
 end
 
 round_old = end_round
 
 function end_round()
-    if G.GAME.totp_wall then
-        G.GAME.totp_wall = nil
+    if G.GAME.fxtrt_wall then
+        G.GAME.fxtrt_wall = nil
         return
     end
     round_old()
@@ -25,15 +25,15 @@ end
 select_old = G.FUNCS.select_blind
 
 function G.FUNCS.select_blind(e)
-    if not G.GAME.totp_leafstate then select_old(e) end
+    if not G.GAME.fxtrt_leafstate then select_old(e) end
 end
 
-function totp.demisePassiveCheck()
+function fxtrt.demisePassiveCheck()
     local _type = G.GAME.blind:get_type()
     return _type == "Small" or _type == "Big"
 end
 
-function totp.setBacks(args)
+function fxtrt.setBacks(args)
     local rarityBacks = {
         { x = 0, y = 2 },
         { x = 2, y = 2 },
@@ -59,35 +59,35 @@ end
 
 SMODS.current_mod.calculate = function(self, context)
 
-    if G.GAME.totp_leafstate then
+    if G.GAME.fxtrt_leafstate then
         SMODS.calculate_effect{{message = localize("k_nope_ex")},G.deck.cards[1] or G.deck}
-        G.GAME.totp_leafstate = nil
+        G.GAME.fxtrt_leafstate = nil
     end
 
     if context.setting_blind then
         if G.GAME.blind.config.blind.key == "bl_final_leaf" then
-            G.GAME.totp_leafsell = false
+            G.GAME.fxtrt_leafsell = false
         end
         if not G.GAME.blind.boss then
-            G.GAME.totp_nostalgic = false
+            G.GAME.fxtrt_nostalgic = false
         end
-        G.GAME.totp_round_rerolls = 0
-        G.GAME.totp_discarded["round"] = false
+        G.GAME.fxtrt_round_rerolls = 0
+        G.GAME.fxtrt_discarded["round"] = false
         if G.GAME.round_resets.ante >= 6 then
-            G.GAME.totp_oml = false
+            G.GAME.fxtrt_oml = false
         end
     end
 
     if context.pre_discard then
-        local discard = G.GAME.totp_discarded
+        local discard = G.GAME.fxtrt_discarded
         discard["round"], discard["run"] = true, true
     end
 
     if context.before and next(context.poker_hands['Flush Five']) and not G.GAME.selected_back.effect.config.randomize_rank_suit and not G.GAME.challenge then
-        if not G.GAME.totp_discarded["round"] then
+        if not G.GAME.fxtrt_discarded["round"] then
             check_for_unlock({type = "pow5"})
         end
-        if not G.GAME.totp_discarded["run"] then
+        if not G.GAME.fxtrt_discarded["run"] then
             check_for_unlock({type = "oblivion"})
         end
     end
@@ -97,7 +97,7 @@ SMODS.current_mod.calculate = function(self, context)
         for _, icard in pairs(G.play.cards) do
             total = total + icard:get_id()
         end
-        if total > 21 then G.GAME.totp_blackjack = false end
+        if total > 21 then G.GAME.fxtrt_blackjack = false end
 	end
 
     if context.card_added then
@@ -111,15 +111,15 @@ SMODS.current_mod.calculate = function(self, context)
             "j_credit_card",
             "j_drivers_license",
         }
-        G.GAME.totp_has_cj = {}
+        G.GAME.fxtrt_has_cj = {}
         local cj_amt = 0
         for _, key in pairs(card_jokers) do
-            G.GAME.totp_has_cj[key] = not not next(SMODS.find_card(key))
+            G.GAME.fxtrt_has_cj[key] = not not next(SMODS.find_card(key))
         end
-        for key in pairs(G.GAME.totp_has_cj) do
-            if G.GAME.totp_has_cj[key] then  cj_amt = cj_amt + 1 end
+        for key in pairs(G.GAME.fxtrt_has_cj) do
+            if G.GAME.fxtrt_has_cj[key] then  cj_amt = cj_amt + 1 end
         end
-        if G.GAME.totp_has_cj["j_baseball"] and G.GAME.totp_has_cj["j_trading"] then
+        if G.GAME.fxtrt_has_cj["j_baseball"] and G.GAME.fxtrt_has_cj["j_trading"] then
             check_for_unlock({type = "collector1"})
         end
         if cj_amt >= 4 then
@@ -128,7 +128,7 @@ SMODS.current_mod.calculate = function(self, context)
     end
 
     if context.selling_card and context.card.config.set == "Joker" and G.GAME.blind.config.blind.key == "bl_final_leaf" then
-        G.GAME.totp_leafsell = true
+        G.GAME.fxtrt_leafsell = true
     end
 end
 
@@ -138,7 +138,7 @@ end
 
 old_money = ease_dollars
 function ease_dollars(mod)
-    if mod > 0 and (G.GAME.challenge == "c_totp_nepo" or (G.GAME.challenge == "c_totp_demise" and G.GAME.round_resets.blind_choices.Boss == "bl_tooth")) then
+    if mod > 0 and (G.GAME.challenge == "c_fxtrt_nepo" or (G.GAME.challenge == "c_fxtrt_demise" and G.GAME.round_resets.blind_choices.Boss == "bl_tooth")) then
         mod = 0
     else
         old_money(mod)

@@ -2,14 +2,14 @@ SMODS.Challenge({
 	key = "flawless4oak",
 	rules = {
 		custom = {
-			{ id = "totp_4oak1" },
-			{ id = "totp_4oak2" },
-			{ id = "totp_4oak3" },
-			{ id = "totp_4oak4" },
-			{ id = "totp_4oak5" },
-			{ id = "totp_4oak6" },
-			{ id = "totp_4oak7" },
-			{ id = "totp_4oak8" },
+			{ id = "fxtrt_4oak1" },
+			{ id = "fxtrt_4oak2" },
+			{ id = "fxtrt_4oak3" },
+			{ id = "fxtrt_4oak4" },
+			{ id = "fxtrt_4oak5" },
+			{ id = "fxtrt_4oak6" },
+			{ id = "fxtrt_4oak7" },
+			{ id = "fxtrt_4oak8" },
 		},
 		modifiers = {
             { id = 'hands',  value = 2 },

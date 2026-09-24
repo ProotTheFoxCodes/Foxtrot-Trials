@@ -2,13 +2,13 @@ SMODS.Challenge({
 	key = "chinashop",
 	rules = {
 		custom = {
-            { id = "totp_chinashop5" },
-            { id = "totp_chinashop6" },
+            { id = "fxtrt_chinashop5" },
+            { id = "fxtrt_chinashop6" },
             { id = 'no_shop_jokers' },
-			{ id = "totp_chinashop1" },
-            { id = "totp_chinashop2" },
-            { id = "totp_chinashop3" },
-            { id = "totp_chinashop4" },
+			{ id = "fxtrt_chinashop1" },
+            { id = "fxtrt_chinashop2" },
+            { id = "fxtrt_chinashop3" },
+            { id = "fxtrt_chinashop4" },
         },
 		modifiers = {
             { id = 'joker_slots', value = 1 },

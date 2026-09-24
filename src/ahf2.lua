@@ -5,16 +5,16 @@ SMODS.Challenge({
 	key = "ahf2",
 	rules = {
 		custom = {
-			{ id = "totp_ahf21" },
-			{ id = "totp_ahf22" },
-			{ id = "totp_ahf23" },
-			{ id = "totp_ahf24" },
-			{ id = "totp_ahf25" },
-			{ id = "totp_ahf26" },
-			{ id = "totp_ahf27" },
-			{ id = "totp_ahf28" },
-			{ id = "totp_ahf29" },
-			{ id = "totp_ahf210" },
+			{ id = "fxtrt_ahf21" },
+			{ id = "fxtrt_ahf22" },
+			{ id = "fxtrt_ahf23" },
+			{ id = "fxtrt_ahf24" },
+			{ id = "fxtrt_ahf25" },
+			{ id = "fxtrt_ahf26" },
+			{ id = "fxtrt_ahf27" },
+			{ id = "fxtrt_ahf28" },
+			{ id = "fxtrt_ahf29" },
+			{ id = "fxtrt_ahf210" },
 			
 		},
 		modifiers = {
@@ -52,14 +52,14 @@ SMODS.Challenge({
 				if context.removed[i]:is_face() then
 					local comedy_card = pseudorandom_element(G.playing_cards, "non faces", {
 					in_pool = function(v)
-						return not v:is_face() and not v.totp_tragic
+						return not v:is_face() and not v.fxtrt_tragic
 					end
 					})
-					comedy_card.totp_tragic = true
+					comedy_card.fxtrt_tragic = true
 					SMODS.destroy_cards(comedy_card)
 				end
 			end
-			ret.message = localize("totp_comedy")
+			ret.message = localize("fxtrt_comedy")
 			return ret
 		end
 	end
@@ -67,13 +67,13 @@ SMODS.Challenge({
 
 local discard_old = G.FUNCS.discard_cards_from_highlighted
 function G.FUNCS.discard_cards_from_highlighted(e,hook)
-	if G.GAME.totp_from_canio or G.GAME.challenge ~= "c_totp_ahf2" or G.GAME.current_round.hands_left <= 0 then
+	if G.GAME.fxtrt_from_canio or G.GAME.challenge ~= "c_fxtrt_ahf2" or G.GAME.current_round.hands_left <= 0 then
 		discard_old(e,hook)
-		G.GAME.totp_from_canio = nil
+		G.GAME.fxtrt_from_canio = nil
 	else
 		if SMODS.pseudorandom_probability(nil, "canio discard", 1, 4) then
 			G.FUNCS.play_cards_from_highlighted(nil)
-			G.GAME.totp_from_canio = true
+			G.GAME.fxtrt_from_canio = true
 		else
 			discard_old(e,hook)
 		end
@@ -82,14 +82,14 @@ end
 
 local play_old = G.FUNCS.play_cards_from_highlighted
 function G.FUNCS.play_cards_from_highlighted(e)
-	if G.GAME.totp_from_canio or G.GAME.challenge ~= "c_totp_ahf2" or G.GAME.current_round.discards_left <= 0 then
+	if G.GAME.fxtrt_from_canio or G.GAME.challenge ~= "c_fxtrt_ahf2" or G.GAME.current_round.discards_left <= 0 then
 		play_old(e)
-		G.GAME.totp_from_canio = nil
+		G.GAME.fxtrt_from_canio = nil
 	else
 		if SMODS.pseudorandom_probability(nil, "canio play", 1, 4) then
 ---@diagnostic disable-next-line: redundant-parameter
 			G.FUNCS.discard_cards_from_highlighted(e)
-			G.GAME.totp_from_canio = true
+			G.GAME.fxtrt_from_canio = true
 		else
 			play_old(e)
 		end

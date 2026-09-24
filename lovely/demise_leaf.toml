@@ -16,7 +16,7 @@ pattern = '''
 position = 'after'
 match_indent = false
 payload = '''
-if (G.GAME.totp_sold or (G.GAME.challenge ~= "c_totp_demise")) or (G.GAME.round_resets.blind_choices.Boss ~= "bl_final_leaf") then
+if (G.GAME.fxtrt_sold or (G.GAME.challenge ~= "c_fxtrt_demise")) or (G.GAME.round_resets.blind_choices.Boss ~= "bl_final_leaf") then
 '''
 
 [[patches]]
@@ -58,7 +58,7 @@ pattern = '''
 position = 'after'
 match_indent = false
 payload = '''
-if (G.GAME.totp_sold or (G.GAME.challenge ~= "c_totp_demise")) or (G.GAME.round_resets.blind_choices.Boss ~= "bl_final_leaf") then
+if (G.GAME.fxtrt_sold or (G.GAME.challenge ~= "c_fxtrt_demise")) or (G.GAME.round_resets.blind_choices.Boss ~= "bl_final_leaf") then
 '''
 
 [[patches]]
