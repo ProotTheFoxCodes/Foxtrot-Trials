@@ -1,0 +1,12 @@
+{
+	"id": "FoxtrotTrials",
+	"name": "Foxtrot Trials",
+	"display_name": "Foxtrot Trials",
+	"author": ["Proto System (aka ProdByProto (It/They)"],
+	"description": "Custom Challenges and Achievements :3",
+	"prefix": "fxtrt",
+	"main_file": "main.lua",
+	"priority": -1e2,
+	"version": "0.2.1",
+	"dependencies": []
+}
