@@ -37,7 +37,7 @@ SMODS.Challenge({
     end,
 	calculate = function(self, context)
         local ret = {}
-		if context.setting_blind and G.GAME.round_resets.ante >= 3 then
+		if context.setting_blind and G.GAME.round_resets.ante >= 2 then
             local fxtrt_ban_consumable = pseudorandom_element(get_current_pool("Consumeables"), "ban it", {
 				in_pool = function(v)
                     return G.P_CENTERS[v] and not next(SMODS.find_card(v))

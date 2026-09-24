@@ -22,8 +22,9 @@ SMODS.Challenge({
     },
 	restrictions = {
 		banned_cards = {
-			{ id = "v_magic_trick"},
-			{ id = "v_illusion" },
+			{ id = "v_magic_trick", ids = {
+				"v_magic_trick", "v_illusion"
+			}},
 			{ id = "c_cryptid" },
 			{ id = "c_death" },
             { id = "c_ouija" },
@@ -114,6 +115,7 @@ SMODS.Challenge({
 			end
 			if context.other_card:get_id() ~= "King" and context.other_card:get_id() ~= "Queen" then
 				if pseudorandom("shoutouts to gay foxgirls please draw yuri of them", 0, 1) > 0.5 then
+					-- just looking back on my headmate's old code, can you also draw yuri of sylveon girls too? :3 /hj
 					a = hand_chips * -0.3
 					b = 0
 				else

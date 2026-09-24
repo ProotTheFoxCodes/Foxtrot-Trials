@@ -67,7 +67,7 @@ wallEvent2 = {
                 blockable = false,
                 blocking = true,
                 func = function()
-                    play_sound('tarot2', 0.76, 0.4); return true
+                    play_sound('tarot2', 0.76, 0.25); return true
                 end
             }))
             play_sound('tarot2', 1, 0.4)

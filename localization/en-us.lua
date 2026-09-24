@@ -97,7 +97,7 @@ misc = {
             "Whenever a {C:blue}non King or Queen{} triggers,"
         },
         ch_c_fxtrt_talents4 = {
-            "{C:red}either{} {X:chips}X0.7{} {C:chips}chips{}{C:red} or{} {X:red,C:white}X0.7{} {C:red}mult{}."
+            "{C:red}either{} {X:chips,C:white}X0.7{} {C:chips}chips{}{C:red} or{} {X:red,C:white}X0.7{} {C:red}mult{}."
         },
         ch_c_fxtrt_talents5 = {
             " "
@@ -151,7 +151,7 @@ misc = {
             "{s:0.8,C:inactive}Every round:{}"
         },
         ch_c_fxtrt_wine4 = {
-            "From Ante 3 onwards, a random {C:attention}Consumable{} that's not"
+            "From Ante 2 onwards, a random {C:attention}Consumable{} that's not"
         },
         ch_c_fxtrt_wine5 = {
             "in your possesion gets {C:red}banned for the rest of the run{}."
